@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Roboto } from "next/font/google"
+import { Geist_Mono, Roboto } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -33,7 +33,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="flex min-h-screen flex-col justify-between">
             <div>
-              <Header title="Dice Game" />
+              <Header title="ABC Play" />
               <main className="container mx-auto max-w-4xl px-4">
                 {children}
               </main>
