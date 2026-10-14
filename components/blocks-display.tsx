@@ -1,10 +1,10 @@
 import {OneBlock} from "./one-block";
 
-type DiceDisplayProps = {
+type BlocksDisplayProps = {
     word: string;
 }
 
-export function BlocksDisplay({word}: DiceDisplayProps) {
+export function BlocksDisplay({word}: BlocksDisplayProps) {
     return (
         <div className="flex flex-row flex-wrap items-center gap-2">
             {word.split("").map(
