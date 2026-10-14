@@ -22,8 +22,11 @@ export default function Page() {
     setDisplayedWord(enteredWord.toUpperCase())
   }
 
-  const onClearClick = () => {
-    //setEnteredWord("")
+  const onClearInputClick = () => {
+    setEnteredWord("")
+  }
+
+  const onClearOutputClick = () => {
     setDisplayedWord("")
   }
 
@@ -45,24 +48,36 @@ export default function Page() {
           Enter one word. Use only letters, no spaces.
         </FieldDescription>
       </Field>
-      <Button
-        disabled={!enteredWordIsValid}
-        onClick={onPlayClick}
-        className="my-4 bg-blue-600 text-white hover:bg-blue-700"
-      >
-        Play
-        <Check className="ml-2 h-4 w-4" />
-      </Button>
+      <div className="mb-3 ml-4 flex items-center gap-2">
+        <Button
+          disabled={!enteredWordIsValid}
+          onClick={onPlayClick}
+          className="my-4 bg-blue-600 text-white hover:bg-blue-700"
+        >
+          Play
+          <Check className="ml-2 h-4 w-4" />
+        </Button>
+        {enteredWord && (
+          <Button
+            onClick={onClearInputClick}
+            variant="outline"
+            className="ml-3 border-red-500 text-red-600 hover:bg-red-50 hover:text-red-700"
+          >
+            Clear Input
+            <X className="ml-2 h-4 w-4" />
+          </Button>
+        )}
+      </div>
       <Separator className="my-4" />
       {displayedWord && (
         <>
           <BlocksDisplay word={displayedWord} />
           <Button
-            onClick={onClearClick}
+            onClick={onClearOutputClick}
             variant="outline"
             className="mt-4 border-amber-500 text-amber-600 hover:bg-amber-50 hover:text-amber-700"
           >
-            Clear
+            Clear Output
             <X className="ml-2 h-4 w-4" />
           </Button>
         </>
