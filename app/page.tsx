@@ -6,6 +6,7 @@ import { Check, X } from "lucide-react"
 import React, { useState } from "react"
 import { BlocksDisplay } from "@/components/blocks-display"
 import { Separator } from "@/components/ui/separator"
+import Image from "next/image"
 
 export default function Page() {
 
@@ -16,7 +17,7 @@ export default function Page() {
     setEnteredWord(e.target.value)
   }
 
-  const enteredWordIsValid = enteredWord.length > 0 && /^[a-zA-Z]+$/.test(enteredWord)
+  const enteredWordIsValid: boolean = enteredWord.length > 0 && /^[a-zA-Z]+$/.test(enteredWord)
 
   const onPlayClick = () => {
     setDisplayedWord(enteredWord.toUpperCase())
@@ -48,11 +49,11 @@ export default function Page() {
           Enter one word. Use only letters, no spaces.
         </FieldDescription>
       </Field>
-      <div className="mb-3 ml-4 flex items-center gap-2">
+      <div className="my-4 mb-3 ml-4 flex items-center gap-2">
         <Button
           disabled={!enteredWordIsValid}
           onClick={onPlayClick}
-          className="my-4 bg-blue-600 text-white hover:bg-blue-700"
+          className="bg-blue-600 text-white hover:bg-blue-700"
         >
           Play
           <Check className="ml-2 h-4 w-4" />

@@ -38,7 +38,10 @@ export default function RootLayout({
                 {children}
               </main>
             </div>
-            <Footer name="Alex Tetervak" />
+            <Footer
+              course="PROG27545 / Web Application Design and Implementation"
+              name="Alex Tetervak"
+            />
           </div>
         </ThemeProvider>
       </body>
