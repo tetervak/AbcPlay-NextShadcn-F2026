@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { Check } from "lucide-react"
+import { Check, X } from "lucide-react"
 import React, { useState } from "react"
 import { BlocksDisplay } from "@/components/blocks-display"
 import { Separator } from "@/components/ui/separator"
@@ -22,6 +22,11 @@ export default function Page() {
     setDisplayedWord(enteredWord.toUpperCase())
   }
 
+  const onClearClick = () => {
+    //setEnteredWord("")
+    setDisplayedWord("")
+  }
+
   return (
     <>
       <Field>
@@ -36,7 +41,9 @@ export default function Page() {
           value={enteredWord}
           onChange={onInputChange}
         />
-        <FieldDescription>Enter one word. Use only letters, no spaces.</FieldDescription>
+        <FieldDescription>
+          Enter one word. Use only letters, no spaces.
+        </FieldDescription>
       </Field>
       <Button
         disabled={!enteredWordIsValid}
@@ -47,7 +54,19 @@ export default function Page() {
         <Check className="ml-2 h-4 w-4" />
       </Button>
       <Separator className="my-4" />
-      {displayedWord && <BlocksDisplay word={displayedWord} />}
+      {displayedWord && (
+        <>
+          <BlocksDisplay word={displayedWord} />
+          <Button
+            onClick={onClearClick}
+            variant="outline"
+            className="mt-4 border-amber-500 text-amber-600 hover:bg-amber-50 hover:text-amber-700"
+          >
+            Clear
+            <X className="ml-2 h-4 w-4" />
+          </Button>
+        </>
+      )}
     </>
   )
 }
