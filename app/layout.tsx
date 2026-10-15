@@ -30,7 +30,6 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider>
           <div className="flex min-h-screen flex-col justify-between">
             <div>
               <Header title="ABC Play" />
@@ -43,7 +42,6 @@ export default function RootLayout({
               name="Alex Tetervak"
             />
           </div>
-        </ThemeProvider>
       </body>
     </html>
   )
