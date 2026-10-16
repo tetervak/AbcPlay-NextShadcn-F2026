@@ -6,7 +6,6 @@ import { Check, X } from "lucide-react"
 import React, { useState } from "react"
 import { BlocksDisplay } from "@/components/blocks-display"
 import { Separator } from "@/components/ui/separator"
-import Image from "next/image"
 
 export default function Page() {
 
@@ -49,6 +48,9 @@ export default function Page() {
           Enter one word. Use only letters, no spaces.
         </FieldDescription>
       </Field>
+      {enteredWordIsValid ?
+        <div className="text-green-600 my-4">The input is valid</div> :
+        <div className="text-red-600 my-4">The input is invalid</div>}
       <div className="my-4 mb-3 ml-4 flex items-center gap-2">
         <Button
           disabled={!enteredWordIsValid}
